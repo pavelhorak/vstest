@@ -15,7 +15,16 @@
  
 <script>
 
-$( "#results" ).text( $.urlParam('s') );
+$( "#results" ).text( $.getUrlVars() );
+  
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+  
 </script>
  
 </body>
