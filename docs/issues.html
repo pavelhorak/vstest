@@ -1,4 +1,5 @@
-<h3>vstest repo issues</h3>
+
+<h3>vstest repo 16.9 open issues</h3>
 
 <div id="github-issues"></div>
 <style>
@@ -13,6 +14,10 @@ a {
     color: #000000;
     text-decoration: none;
 }
+a:hover {
+  color: #0366d6;
+}
+
 .avatar {
     display: inline-block;
     overflow: hidden;
@@ -27,11 +32,11 @@ a {
     var urlToGetAllOpenBugs = "https://api.github.com/repos/microsoft/vstest/issues?state=open&milestone=34";
     $(document).ready(function () {
         $.getJSON(urlToGetAllOpenBugs, function (allIssues) {
-            $("div#github-issues").append("There are " + allIssues.length + " outstanding issues:</br>");
+            //$("div#github-issues").append("There are " + allIssues.length + " outstanding issues:</br>");
             $.each(allIssues, function (i, issue) {
                 // Get assignee (if applicable)
                 var assigneeName = "Unassigned";
-                var avatar_url = "";
+                var avatar_url = "https://github.githubassets.com/images/modules/logos_page/Octocat.png";
                 if (issue.assignee) {
                     assigneeName = issue.assignee.login;
                     avatar_url = issue.assignee.avatar_url + "&s=40";
@@ -42,9 +47,9 @@ a {
                 var daysAgo = (timeDifference / (1000 * 3600 * 24)).toFixed();
                 $("div#github-issues")
                     .append("<div style=\"margin-bottom:20px;\">")
-                    .append("<strong><a href=\"" + issue.html_url + "\">" + issue.title + "</a></strong></br>")
+                    .append('<img class="avatar" src=' + avatar_url + ' width="20" height="20" title="'+assigneeName+'"/>')
+                    .append("&nbsp;<strong><a target='_blank' href=\"" + issue.html_url + "\">" + issue.title + "</a></strong></br>")
                     .append("#" + issue.number + " opened " + daysAgo + " days ago by " + issue.user.login + "</br>")
-                    .append("<img class="avatar" src='" + avatar_url + "' width="20" height="20" alt='"+assigneeName+"'/>")
                     .append("</div>");
             });
         });
