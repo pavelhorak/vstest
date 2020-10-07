@@ -13,6 +13,13 @@ a {
     color: #000000;
     text-decoration: none;
 }
+.avatar {
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    border-radius: 6px;
+}
 </style>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.js"></script>
@@ -24,8 +31,10 @@ a {
             $.each(allIssues, function (i, issue) {
                 // Get assignee (if applicable)
                 var assigneeName = "Unassigned";
+                var avatar_url = "";
                 if (issue.assignee) {
                     assigneeName = issue.assignee.login;
+                    avatar_url = issue.assignee.avatar_url + "&s=40";
                 }
                 // Calculate number of days ago created
                 var today = new Date();
@@ -35,7 +44,7 @@ a {
                     .append("<div style=\"margin-bottom:20px;\">")
                     .append("<strong><a href=\"" + issue.html_url + "\">" + issue.title + "</a></strong></br>")
                     .append("#" + issue.number + " opened " + daysAgo + " days ago by " + issue.user.login + "</br>")
-                    .append("Assigned to: " + assigneeName)
+                    .append("<img class="avatar" src='" + avatar_url + "' width="20" height="20" alt='"+assigneeName+"'/>")
                     .append("</div>");
             });
         });
