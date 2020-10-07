@@ -29,7 +29,12 @@ a:hover {
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.js"></script>
 <script>
     var urlToGetAllOpenBugs = "https://api.github.com/repos/microsoft/vstest/issues?state=open&milestone=34";
+    var urlToGetAzDOProfile = "https://app.vssps.visualstudio.com/_apis/profile/profiles/me";
     $(document).ready(function () {
+        $.getJSON(urlToGetAzDOProfile, function (profile) {
+            console.log( "JSON Data: " + profile );
+            $("p#header-issues").append(" by " + profile.displayName + " ");
+        });
         $.getJSON(urlToGetAllOpenBugs, function (allIssues) {
             $("p#header-issues").append(" (" + allIssues.length + ")");
             $.each(allIssues, function (i, issue) {
