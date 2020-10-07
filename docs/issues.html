@@ -1,5 +1,5 @@
 
-<h3 id="header-issues">vstest - 16.9 open issues</h3>
+<p id="header-issues">vstest - 16.9 open issues</p>
 <div style="overflow: scroll; overflow-x: hidden; height: 300px;"  id="github-issues"></div>
 <style>
 body {
@@ -31,7 +31,7 @@ a:hover {
     var urlToGetAllOpenBugs = "https://api.github.com/repos/microsoft/vstest/issues?state=open&milestone=34";
     $(document).ready(function () {
         $.getJSON(urlToGetAllOpenBugs, function (allIssues) {
-            $("h3#header-issues").append(" (" + allIssues.length + ")");
+            $("p#header-issues").append(" (" + allIssues.length + ")");
             $.each(allIssues, function (i, issue) {
                 // Get assignee (if applicable)
                 var assigneeName = "Unassigned";
