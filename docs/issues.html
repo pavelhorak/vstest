@@ -10,7 +10,7 @@
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.js"></script>
 <script>
-    var urlToGetAllOpenBugs = "https://api.github.com/repos/pavelhorak/vstest/issues?state=open";
+    var urlToGetAllOpenBugs = "https://api.github.com/repos/microsoft/vstest/issues?state=open&milestone=34";
     $(document).ready(function () {
         $.getJSON(urlToGetAllOpenBugs, function (allIssues) {
             $("div#github-issues").append("There are " + allIssues.length + " outstanding issues:</br>");
