@@ -1,7 +1,6 @@
 
 <h3>vstest repo 16.9 open issues</h3>
-
-<div id="github-issues"></div>
+<div style="overflow: scroll;"  id="github-issues"></div>
 <style>
 body {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
@@ -9,7 +8,6 @@ body {
     line-height: 1.5;
     color: #24292e;
     background-color: #fff;
-    overflow: scroll;
 }
 a {
     color: #000000;
@@ -48,7 +46,7 @@ a:hover {
                 var daysAgo = (timeDifference / (1000 * 3600 * 24)).toFixed();
                 $("div#github-issues")
                     .append("<div style=\"margin-bottom:20px;\">")
-                    .append('<img class="avatar" src=' + avatar_url + ' width="20" height="20" title="'+assigneeName +'"/>')
+                    .append('<img class="avatar" src=' + avatar_url + ' width="20" height="20" title="'+assigneeName+'"/>')
                     .append("&nbsp;<strong><a target='_blank' href=\"" + issue.html_url + "\">" + issue.title + "</a></strong></br>")
                     .append("#" + issue.number + " opened " + daysAgo + " days ago by " + issue.user.login + "</br>")
                     .append("</div>");
