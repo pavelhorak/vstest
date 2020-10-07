@@ -14,9 +14,8 @@
 <div id="results"></div>
  
 <script>
-var params = { width:1680, height:1050 };
-var str = jQuery.param( params );
-$( "#results" ).text( str );
+
+$( "#results" ).text( $.urlParam('s') );
 </script>
  
 </body>
